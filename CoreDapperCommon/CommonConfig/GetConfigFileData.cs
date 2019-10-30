@@ -31,7 +31,18 @@ namespace CoreDapperCommon.CommonConfig
         /// <summary>
         /// Redis前缀
         /// </summary>
-        public static string RedisPrefix = ReadConfigFile.Configuration["Appsettings:RedisPrefix"]; 
+        public static string RedisPrefix = ReadConfigFile.Configuration["Appsettings:RedisPrefix"];
+
+        /// <summary>
+        /// 中文josn地址
+        /// </summary>
+        public static string CNJsonAddress = ReadConfigFile.Configuration["Appsettings:CNJsonAddress"];
+
+        /// <summary>
+        /// 英文文josn地址
+        /// </summary>
+        public static string ENJsonAddress = ReadConfigFile.Configuration["Appsettings:ENJsonAddress"];
+
 
         #endregion
     }

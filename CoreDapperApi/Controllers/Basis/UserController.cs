@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CoreDapperCommon.CommonConfig;
-using Microsoft.AspNetCore.Http;
+﻿using System.IO;
+using CoreDapperCommon.CommonEnum;
+using CoreDapperCommon.CommonMethod;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDapperApi.Controllers.Basis
@@ -15,12 +12,9 @@ namespace CoreDapperApi.Controllers.Basis
         [Route("sayhello")]
         public IActionResult SayHello()
         {
-            return Ok(new
-            {
-                ResultCode = 200,
-                ResultType = "success",
-                ResultMsgs = GetConfigFileData.RedisDataLink,
-            });
+            var url = Directory.GetCurrentDirectory();
+
+            return Ok(ReturnHelpMethod.ReturnSuccess((int)HttpCodeEnum.Http_1006));
         }
     }
 }
