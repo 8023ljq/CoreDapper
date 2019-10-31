@@ -7,6 +7,9 @@ using System;
 
 namespace CoreDapperBLL
 {
+    /// <summary>
+    /// 管理员业务处理层
+    /// </summary>
     public class ManagerdBLL : BaseBLL
     {
         /// <summary>

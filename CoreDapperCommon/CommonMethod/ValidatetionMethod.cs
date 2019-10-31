@@ -41,6 +41,7 @@ namespace CoreDapperCommon.CommonMethod
             }
             catch (Exception ex)
             {
+                WriteLogMethod.WriteLogs(ex);
                 result.IsVaild = false;
                 result.ErrorMembers = "Internal error";
             }

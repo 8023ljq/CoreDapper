@@ -14,12 +14,12 @@ namespace CoreDapperBLL
         /// <summary>
         /// 缓存管理员信息
         /// </summary>
-        public RedisHelper redis = new RedisHelper();
+        public RedisHelper redis = new RedisHelper(2);
 
         /// <summary>
         /// 缓存管理员信息
         /// </summary>
-        public RedisHelper Commonredis = new RedisHelper(1);
+        public RedisHelper Commonredis = new RedisHelper(3);
 
         /// <summary>
         /// 处理事物使用

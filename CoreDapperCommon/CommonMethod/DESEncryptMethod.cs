@@ -9,7 +9,7 @@ namespace CoreDapperCommon.CommonMethod
     /// </summary>
     public class DESEncryptMethod
     {
-        private static string DESKey = "admin@2019";
+        private static string DESKey = "core-love-";
 
         #region ========加密========
         /// <summary>
@@ -33,8 +33,11 @@ namespace CoreDapperCommon.CommonMethod
 
             byte[] inputArray = Encoding.UTF8.GetBytes(input);
             var tripleDES = TripleDES.Create();
-            var byteKey = Encoding.UTF8.GetBytes(key);
-            tripleDES.Key = byteKey;
+            var byteKey = Encoding.UTF8.GetBytes(DESKey + key);
+            byte[] allKey = new byte[24];
+            Buffer.BlockCopy(byteKey, 0, allKey, 0, 16);
+            Buffer.BlockCopy(byteKey, 0, allKey, 16, 8);
+            tripleDES.Key = allKey;
             tripleDES.Mode = CipherMode.ECB;
             tripleDES.Padding = PaddingMode.PKCS7;
             ICryptoTransform cTransform = tripleDES.CreateEncryptor();
@@ -72,8 +75,11 @@ namespace CoreDapperCommon.CommonMethod
         {
             byte[] inputArray = Convert.FromBase64String(input);
             var tripleDES = TripleDES.Create();
-            var byteKey = Encoding.UTF8.GetBytes(key);
-            tripleDES.Key = byteKey;
+            var byteKey = Encoding.UTF8.GetBytes(DESKey + key);
+            byte[] allKey = new byte[24];
+            Buffer.BlockCopy(byteKey, 0, allKey, 0, 16);
+            Buffer.BlockCopy(byteKey, 0, allKey, 16, 8);
+            tripleDES.Key = allKey;
             tripleDES.Mode = CipherMode.ECB;
             tripleDES.Padding = PaddingMode.PKCS7;
             ICryptoTransform cTransform = tripleDES.CreateDecryptor();

@@ -11,12 +11,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDapperApi.Controllers.CommonController
 {
-    [Route("api/[controller]")]
+    [Route("api/login")]
     [ApiController]
     public class LoginController : ControllerBase
     {
         private ManagerdBLL managerdBLL = new ManagerdBLL();
-
 
         /// <summary>
         /// Author：Geek Dog  Content：后台管理员登录 AddTime：2019-5-22 15:32:55  
