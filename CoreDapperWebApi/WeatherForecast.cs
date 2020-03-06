@@ -1,6 +1,6 @@
 using System;
 
-namespace CoreDapperApi
+namespace CoreDapperWebApi
 {
     public class WeatherForecast
     {

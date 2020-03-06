@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace CoreDapperApi.Controllers
+namespace CoreDapperWebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -24,9 +24,16 @@ namespace CoreDapperApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IEnumerable<WeatherForecast> Get()
         {
-            return Ok("Holle World");
+            var rng = new Random();
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            })
+            .ToArray();
         }
     }
 }
