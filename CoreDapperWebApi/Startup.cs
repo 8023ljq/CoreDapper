@@ -57,15 +57,15 @@ namespace CoreDapperWebApi
             services.AddSignalR(options =>
             {
                 //客户端发保持连接请求到服务端最长间隔，默认30秒，改成4分钟，网页需跟着设置connection.keepAliveIntervalInMilliseconds = 12e4;即2分钟
-                options.ClientTimeoutInterval = TimeSpan.FromMinutes(4);
+                options.ClientTimeoutInterval = TimeSpan.FromMilliseconds(5000);
                 //服务端发保持连接请求到客户端间隔，默认15秒，改成2分钟，网页需跟着设置connection.serverTimeoutInMilliseconds = 24e4;即4分钟
-                options.KeepAliveInterval = TimeSpan.FromMinutes(2);
+                options.KeepAliveInterval = TimeSpan.FromMilliseconds(5000);
             });
 
             //注入跨域
             services.AddCors(option => option.AddPolicy("cors",
                 policy => policy.AllowAnyHeader().AllowAnyMethod().AllowCredentials()
-                    .WithOrigins("http://localhost:8001", "http://localhost:8000", "http://localhost:8002")));
+                    .WithOrigins("http://localhost:8080", "http://localhost:8000", "http://localhost:8002")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
