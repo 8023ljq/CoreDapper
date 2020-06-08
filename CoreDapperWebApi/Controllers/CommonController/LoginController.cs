@@ -14,8 +14,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDapperWebApi.Controllers
 {
-    [ApiController]
     [Route("api/login")]
+    [ApiController]
     public class LoginController : ControllerBase
     {
         private ManagerdBLL managerdBLL = new ManagerdBLL();
