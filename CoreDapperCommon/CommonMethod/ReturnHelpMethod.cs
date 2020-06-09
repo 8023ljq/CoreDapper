@@ -9,19 +9,20 @@ namespace CoreDapperCommon.CommonMethod
     /// </summary>
     public class ReturnHelpMethod
     {
-        /// <summary>
+            /// <summary>
         /// Author：Geek Dog  Content：普通请求成功 AddTime：2019-1-8 14:25:30  
         /// </summary>
         /// <param name="enumType">枚举类型</param>
         /// <param name="Model">返回参数</param>
         /// <returns></returns>
-        public static ResultMsg ReturnSuccess(object ResultCode, object Model = null)
+        public static ResultMsg ReturnSuccess(object ResultCode, object Model = null, int ResultCount = 0)
         {
             ResultMsg msg = new ResultMsg();
             msg.ResultCode = 200;
             msg.ResultType = "success";
             msg.ResultMsgs = JosnHelp.Readjson(ResultCode.ToString(), LanguageConfig.CN);
             msg.ResultData = Model;
+            msg.ResultCount = ResultCount;
             return msg;
         }
 

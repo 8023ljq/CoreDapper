@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Dapper.Contrib">
+      <HintPath>C:\Users\80939\.nuget\packages\dapper.contrib\2.0.30\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

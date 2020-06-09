@@ -1,6 +1,6 @@
 ﻿using CoreDapperCommon.CommonConfig;
 using Dapper;
-using DapperExtensions;
+using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -341,13 +341,15 @@ namespace CoreDapperHelp.DapperHelp
                 {
                     OpenConnect(conn);
                     var a = conn.Insert<T>(item, commandTimeout: commandTimeout);
-                    return a;
+                    return a.ToString();
                 }
             }
             else
             {
                 var conn = transaction.Connection;
-                return conn.Insert(item, transaction: transaction, commandTimeout: commandTimeout);
+                var a = conn.Insert(item, transaction: transaction, commandTimeout: commandTimeout);
+
+                return a.ToString();
             }
         }
 
@@ -365,7 +367,7 @@ namespace CoreDapperHelp.DapperHelp
                 {
                     OpenConnect(conn);
 
-                    conn.Insert<T>(list, commandTimeout: commandTimeout);
+                    conn.Insert(list, commandTimeout: commandTimeout);
                 }
             }
             else
