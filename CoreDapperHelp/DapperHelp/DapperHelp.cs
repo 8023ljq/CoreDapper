@@ -186,11 +186,11 @@ namespace CoreDapperHelp.DapperHelp
         /// <param name="param"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public int ExecuteSqlInt(string sql, object param = null, IDbTransaction transaction = null)
+        public int ExecuteSqlInt(string sql, object param = null,bool useWriteConn = false, IDbTransaction transaction = null)
         {
             if (transaction == null)
             {
-                using (IDbConnection conn = GetConnection(true))
+                using (IDbConnection conn = GetConnection(useWriteConn))
                 {
                     OpenConnect(conn);
                     return conn.Execute(sql, param, commandTimeout: commandTimeout, commandType: CommandType.Text);
